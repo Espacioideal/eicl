@@ -1,6 +1,6 @@
 // Reemplaza estos valores con tus propias credenciales de Contentful
-SPACE_ID = "ti2na2n1uido";
-ACCESS_TOKEN = "tZc9say8SlyPCJEw4HvNm9A0xIv0uo4OBHePxO5yIck";
+SPACE_ID = "9btrxlqm18gi";
+ACCESS_TOKEN = "qw2RY4R5_sciB9neqzJMD27k_wJq_Dzs3r9tINV_ojY";
 
 // El ID del tipo de contenido que creamos en Contentful (el identificador de API)
 CONTENT_TYPE_ID = "infoBodegas";
