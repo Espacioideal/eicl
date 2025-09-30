@@ -189,6 +189,7 @@ aside {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative; /* necesario para posicionar el botón dentro */
 }
 
 body.jw-modal-open {
@@ -529,8 +530,6 @@ section {
 }
 
 
-
-
 .container {
     max-width: 900px;
     margin: 0 auto;
@@ -790,3 +789,44 @@ section {
 .aparecer-dinamico:nth-child(7) { animation-delay: 1s; }
 .aparecer-dinamico:nth-child(8) { animation-delay: 1.2s; }
 .aparecer-dinamico:nth-child(9) { animation-delay: 1.4s; }
+
+
+
+/* Botón de cerrar */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.close-btn::before,
+.close-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  background: #333;
+  transform-origin: center;
+  transition: background 0.3s ease;
+}
+
+.close-btn::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-btn::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.close-btn:hover::before,
+.close-btn:hover::after {
+  background: #e63946; /* cambia a rojo al pasar el mouse */
+}
