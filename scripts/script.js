@@ -50,19 +50,19 @@ window.addEventListener("DOMContentLoaded", () => {
 function switchBackground(pagina) { 
   switch (pagina) {
     case 'inicio':
-      cambiarFondoHeader('assets/Banners/homepage.jpg', '60vh');
+      cambiarFondoHeader('assets/Banners/homepage.jpeg', '60vh');
       break;
     case 'galeria':
-      cambiarFondoHeader('assets/Banners/gallery.jpg', '40vh')
+      cambiarFondoHeader('assets/Banners/gallery.jpeg', '40vh')
       break;
     case 'contacto':
-      cambiarFondoHeader('assets/Banners/contact.jpg', '40vh')
+      cambiarFondoHeader('assets/Banners/contact.jpeg', '40vh')
       break;
     case 'caracteristicas':
-      cambiarFondoHeader('assets/Banners/characteristics.jpg', '40vh')
+      cambiarFondoHeader('assets/Banners/characteristics.jpeg', '40vh')
       break;
     case 'ubicacion':
-      cambiarFondoHeader('assets/Banners/location.jpg', '40vh')
+      cambiarFondoHeader('assets/Banners/location.jpeg', '40vh')
       break;
     default:
       break;
