@@ -389,6 +389,7 @@ section {
   padding-bottom: 10rem;
   display: grid;
   justify-items: anchor-center;
+  justify-content: center;
 }
 
 
