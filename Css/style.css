@@ -831,3 +831,147 @@ section {
 .close-btn:hover::after {
   background: #e63946; /* cambia a rojo al pasar el mouse */
 }
+
+
+
+.image-lightbox {
+  display: none;
+
+  position: fixed;
+  inset: 0;
+
+  z-index: 99999;
+
+  background: rgba(0, 0, 0, 0.92);
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+}
+
+.image-lightbox.active {
+  display: flex;
+}
+
+#lightbox-image {
+  max-width: 85vw;
+  max-height: 90vh;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  border-radius: 8px;
+
+  user-select: none;
+}
+
+
+/* Botón cerrar */
+
+.close-lightbox {
+  position: absolute;
+
+  top: 20px;
+  right: 25px;
+
+  background: none;
+  border: none;
+
+  color: white;
+
+  font-size: 45px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  z-index: 10;
+
+  padding: 5px 10px;
+}
+
+
+/* Botones siguiente/anterior */
+
+.lightbox-nav {
+  position: absolute;
+
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 55px;
+  height: 70px;
+
+  border: none;
+
+  background: rgba(0, 0, 0, 0.35);
+
+  color: white;
+
+  font-size: 45px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  z-index: 10;
+
+  transition: background 0.2s ease;
+}
+
+.lightbox-nav:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.lightbox-prev {
+  left: 20px;
+}
+
+.lightbox-next {
+  right: 20px;
+}
+
+
+/* En móvil */
+
+@media (max-width: 768px) {
+
+  .image-lightbox {
+    padding: 15px;
+  }
+
+  #lightbox-image {
+    max-width: 95vw;
+    max-height: 80vh;
+  }
+
+  .lightbox-nav {
+    width: 45px;
+    height: 55px;
+
+    font-size: 35px;
+  }
+
+  .lightbox-prev {
+    left: 8px;
+  }
+
+  .lightbox-next {
+    right: 8px;
+  }
+
+  .close-lightbox {
+    top: 10px;
+    right: 10px;
+
+    font-size: 38px;
+  }
+}

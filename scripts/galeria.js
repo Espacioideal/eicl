@@ -17,6 +17,138 @@ thumbnailsContainer = document.getElementById("thumbnails-gallery");
 prevBtn = document.getElementById("prev-btn");
 nextBtn = document.getElementById("next-btn");
 
+lightbox = document.querySelector('#image-lightbox');
+lightboxImage = document.querySelector('#lightbox-image');
+closeLightbox = document.querySelector('#close-lightbox');
+
+// ==========================================
+// LIGHTBOX
+// ==========================================
+
+lightboxPrev = document.querySelector('#lightbox-prev');
+lightboxNext = document.querySelector('#lightbox-next');
+
+
+// Abrir Lightbox
+mainImageElement.addEventListener('click', () => {
+
+  // Usamos la imagen que actualmente está seleccionada
+  lightboxImage.src = mainImageElement.src;
+  lightboxImage.alt = mainImageElement.alt;
+
+  lightbox.classList.add('active');
+
+  // Evita hacer scroll en la página
+  document.body.style.overflow = 'hidden';
+});
+
+
+// Cerrar Lightbox
+closeLightbox.addEventListener('click', () => {
+  closeImageLightbox();
+});
+
+
+// Click en el fondo para cerrar
+lightbox.addEventListener('click', (event) => {
+
+  if (event.target === lightbox) {
+    closeImageLightbox();
+  }
+
+});
+
+
+// Botón anterior
+lightboxPrev.addEventListener('click', (event) => {
+
+  event.stopPropagation();
+
+  prevImage();
+
+  updateLightboxImage();
+
+});
+
+
+// Botón siguiente
+lightboxNext.addEventListener('click', (event) => {
+
+  event.stopPropagation();
+
+  nextImage();
+
+  updateLightboxImage();
+
+});
+
+
+// Teclas del teclado
+document.addEventListener('keydown', (event) => {
+
+  // Si el lightbox no está abierto, no hacemos nada
+  if (!lightbox.classList.contains('active')) {
+    return;
+  }
+
+
+  // ESC
+  if (event.key === 'Escape') {
+
+    closeImageLightbox();
+
+  }
+
+
+  // Flecha izquierda
+  else if (event.key === 'ArrowLeft') {
+
+    event.preventDefault();
+
+    prevImage();
+
+    updateLightboxImage();
+
+  }
+
+
+  // Flecha derecha
+  else if (event.key === 'ArrowRight') {
+
+    event.preventDefault();
+
+    nextImage();
+
+    updateLightboxImage();
+
+  }
+
+});
+
+
+// Actualiza la imagen del Lightbox
+function updateLightboxImage() {
+
+  if (galleryImages.length === 0) return;
+
+  currentImage = galleryImages[currentIndex];
+
+  lightboxImage.src = "https:" + currentImage.url;
+  lightboxImage.alt = currentImage.title;
+
+}
+
+
+// Cerrar Lightbox
+function closeImageLightbox() {
+
+  lightbox.classList.remove('active');
+
+  document.body.style.overflow = '';
+
+}
+
+
 galleryImages = []; // Array para guardar las imágenes de Contentful
 currentIndex = 0; // Índice de la imagen que se está mostrando
 
